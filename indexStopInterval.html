@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #root {
+      width: 100vw;
+      height: 100vh;
+      background-color: bisque;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="sosa"></div>
+  </div>
+  <script>
+    const sosa = document.getElementById('sosa');
+    console.log(sosa);
+    sosa.style.width = "100px";
+    sosa.style.height = "100px"
+    sosa.style.backgroundColor = "black";
+    sosa.style.position = "absolute";
+    sosa.style.top = "100px";
+    
+    const root = document.getElementById('root');
+    console.log(root);
+
+    // 랩핑을 증가시키는 걸로 해주면 된다.
+    // sosa.style.top = ming + "1px";
+    
+    let ming = 0;
+
+    
+    // position으로 대각선 이동
+    // 위치 값을 계속 결정해주는 것 = 렌더링
+    // 그것이 움직이는 것처럼 보이는 것
+    const interval = setInterval(function() {
+      sosa.style.top = ming + "px"
+      sosa.style.left = ming + "px"
+      ming++
+      
+      if(sosa.style.top === "250px") {
+        clearInterval(interval)
+      } else {
+        // 일치로 인해 이미 정지되는 판정
+        // 재실행을 위해선 새 함수를 지정해줘야 한다.
+       setTimeout(function(){
+
+       }, 2000) 
+      }
+    }, 10);
+    
+  </script>
+</body>
+</html>
